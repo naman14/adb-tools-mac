@@ -310,6 +310,7 @@
 				CODE_SIGN_ENTITLEMENTS = adbconnect/adbconnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"adbconnect/Preview Content\"";
 				DEVELOPMENT_TEAM = V3237NN4PA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -320,6 +321,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.adbconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -334,6 +336,7 @@
 				CODE_SIGN_ENTITLEMENTS = adbconnect/adbconnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"adbconnect/Preview Content\"";
 				DEVELOPMENT_TEAM = V3237NN4PA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -344,6 +347,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.naman14.adbconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
