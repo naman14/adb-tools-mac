@@ -57,15 +57,19 @@ class AdbHelper {
     }
     
     func makeTCPConnection(deviceId: String) {
-        let deviceIp = getDeviceIp(deviceId: deviceId);
-        let tcpCommand = "-s " + deviceId + " tcpip 5555"
-        _ = runAdbCommand(tcpCommand)
-        let connectCommand = "-s " + deviceId + " connect " + deviceIp + ":5555"
-        _ = runAdbCommand(connectCommand)
+        DispatchQueue.global(qos: .background).async {
+            let deviceIp = self.getDeviceIp(deviceId: deviceId);
+            let tcpCommand = "-s " + deviceId + " tcpip 5555"
+            _ = self.runAdbCommand(tcpCommand)
+            let connectCommand = "-s " + deviceId + " connect " + deviceIp + ":5555"
+            _ = self.runAdbCommand(connectCommand)
+        }
     }
     
     func disconnectTCPConnection(deviceId: String) {
-        _ = runAdbCommand("-s " + deviceId + " disconnect")
+        DispatchQueue.global(qos: .background).async {
+            _ = self.runAdbCommand("-s " + deviceId + " disconnect")
+        }
     }
 
     func getDeviceIp(deviceId: String) -> String {

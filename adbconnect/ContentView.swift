@@ -15,11 +15,10 @@ struct ContentView: View {
     
     @State private var statusMessage: String = ""
     
-    init() {
-        _devices = State(initialValue: adb.getDevices())
-    }
-    
     var body: some View {
+        DispatchQueue.global(qos: .background).async {
+            devices = adb.getDevices()
+        }
         return VStack {
             ScrollView(.vertical) {
                 if (devices.isEmpty) {
@@ -77,12 +76,11 @@ struct DeviceActionsView: View {
             }.contentShape(Rectangle())
             .onTapGesture {
                 if(isTcpConnected()) {
-                    adb.disconnectTCPConnection(deviceId: device.id)
                     statusMessaage = "Disconnected remoted connection"
-                   
+                    adb.disconnectTCPConnection(deviceId: device.id)
                 } else {
-                    adb.makeTCPConnection(deviceId: device.id)
                     statusMessaage = "Connected to adb remotely"
+                    adb.makeTCPConnection(deviceId: device.id)
                 }
                 // refresh device list
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -96,8 +94,8 @@ struct DeviceActionsView: View {
                 Text("Take screenshot")
             }.contentShape(Rectangle())
             .onTapGesture {
+                statusMessaage = "Screenshot will be saved in Desktop"
                 adb.takeScreenshot(deviceId: device.id)
-                statusMessaage = "Screenshot saved in Desktop"
             }
             
             // record screen
@@ -107,13 +105,13 @@ struct DeviceActionsView: View {
             }.contentShape(Rectangle())
             .onTapGesture {
                 if (isRecordingScreen) {
+                    statusMessaage = "Recording will be saved in Desktop"
                     adb.stopScreenRecording(deviceId: device.id)
                     isRecordingScreen = false
-                    statusMessaage = "Recording saved in Desktop"
                 } else {
+                    statusMessaage = "Started recording screen.."
                     adb.recordScreen(deviceId: device.id)
                     isRecordingScreen = true
-                    statusMessaage = "Started recording screen.."
                 }
             }
             
@@ -132,8 +130,8 @@ struct DeviceActionsView: View {
                     Image("DeeplinkIcon").resizable().frame(width: 18.0, height: 18.0)
                     TextField("deeplink", text: $deeplink).padding(.leading, 5)
                     Button(action: {
-                        adb.openDeeplink(deviceId: device.id, deeplink: deeplink)
                         statusMessaage = "Opening deeplink.."
+                        adb.openDeeplink(deviceId: device.id, deeplink: deeplink)
                     }, label: {
                         Text("Open")
                     })
@@ -145,8 +143,8 @@ struct DeviceActionsView: View {
                     Text("Capture logcat")
                 }.contentShape(Rectangle()).padding(.leading, 20)
                 .onTapGesture {
-                    adb.captureBugReport(deviceId: device.id)
                     statusMessaage = "Logcat saved in Desktop"
+                    adb.captureBugReport(deviceId: device.id)
                 }
             }
             
