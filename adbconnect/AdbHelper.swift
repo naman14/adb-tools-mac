@@ -10,6 +10,9 @@ import Foundation
 class AdbHelper {
     
     let adb = Bundle.main.url(forResource: "adb", withExtension: nil)
+    let scrcpyServer = Bundle.main.url(forResource: "scrcpy-server", withExtension: nil)
+    let scrcpyClient = Bundle.main.url(forResource: "scrcpy", withExtension: nil)
+    var scrcpyTasks = [String:Process]()
     
     func getDevices() -> [Device] {
         let command = "devices -l | awk 'NR>1 {print $1}'"
@@ -53,6 +56,14 @@ class AdbHelper {
         // after killing the screenrecord process,we have to for some time before pulling the file else file stays corrupted
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             _ = self.runAdbCommand("-s " + deviceId + " pull /sdcard/screenrecord_adbtool.mp4 ~/Desktop/record" + time + ".mp4")
+        }
+    }
+    
+    func control(deviceId: String) {
+        if self.scrcpyTasks[deviceId] == nil {
+            DispatchQueue.global(qos: .background).async {
+                self.scrcpyTasks[deviceId] = self.runScrcpyCommand("-s " + deviceId)
+            }
         }
     }
     
@@ -109,6 +120,20 @@ class AdbHelper {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
         return output
+    }
+    
+    private func runScrcpyCommand(_ command: String) -> Process {
+        let task = Process()
+        
+        task.environment = ["ADB":self.adb!.path,"SCRCPY_SERVER_PATH":scrcpyServer!.path]
+        task.arguments = ["-c", self.scrcpyClient!.path + " " + command]
+        task.launchPath = "/bin/sh"
+        do {
+            try task.run()
+        } catch {
+            
+        }
+        return task
     }
     
 }
