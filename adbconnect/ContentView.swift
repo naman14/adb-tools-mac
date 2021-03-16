@@ -51,6 +51,8 @@ struct DeviceActionsView: View {
     @State private var deeplink: String = ""
     @State private var showAdvanced: Bool = false
     @State private var isRecordingScreen: Bool = false
+    @State private var isInControllScreen: Bool = false
+
     
     private func isTcpConnected() -> Bool {
         // if already connected over tcp, name would contain the port on which we connected
@@ -112,6 +114,22 @@ struct DeviceActionsView: View {
                     statusMessaage = "Started recording screen.."
                     adb.recordScreen(deviceId: device.id)
                     isRecordingScreen = true
+                }
+            }
+            // record screen
+            HStack(alignment: .top) {
+                Image("RecordIcon").resizable().frame(width: 18.0, height: 18.0)
+                Text(isInControllScreen ? "Connected..." : "Remote control")
+            }.contentShape(Rectangle())
+            .onTapGesture {
+                if (isInControllScreen) {
+                    statusMessaage = "Connected"
+//                    adb.stopControl(deviceId: device.id)
+                    isInControllScreen = false
+                } else {
+                    statusMessaage = "Started remote control.."
+                    adb.control(deviceId: device.id)
+                    isInControllScreen = true
                 }
             }
             

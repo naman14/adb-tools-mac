@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285232E525FF07310073E1AD /* scrcpy-server in Resources */ = {isa = PBXBuildFile; fileRef = 285232E425FF07310073E1AD /* scrcpy-server */; };
+		285232E825FF07460073E1AD /* scrcpy in Resources */ = {isa = PBXBuildFile; fileRef = 285232E725FF07460073E1AD /* scrcpy */; };
 		EDF6FC0325F8A6E3002D1EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6FC0225F8A6E3002D1EF2 /* AppDelegate.swift */; };
 		EDF6FC0525F8A6E3002D1EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6FC0425F8A6E3002D1EF2 /* ContentView.swift */; };
 		EDF6FC0725F8A6E3002D1EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF6FC0625F8A6E3002D1EF2 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		285232E425FF07310073E1AD /* scrcpy-server */ = {isa = PBXFileReference; lastKnownFileType = file; path = "scrcpy-server"; sourceTree = "<group>"; };
+		285232E725FF07460073E1AD /* scrcpy */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = scrcpy; sourceTree = "<group>"; };
 		EDF6FBFF25F8A6E3002D1EF2 /* adbconnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adbconnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF6FC0225F8A6E3002D1EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF6FC0425F8A6E3002D1EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 		EDF6FC1A25FA03DC002D1EF2 /* bin */ = {
 			isa = PBXGroup;
 			children = (
+				285232E425FF07310073E1AD /* scrcpy-server */,
+				285232E725FF07460073E1AD /* scrcpy */,
 				EDF6FC1C25FA03F9002D1EF2 /* adb */,
 			);
 			path = bin;
@@ -152,8 +158,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF6FC0D25F8A6E3002D1EF2 /* Main.storyboard in Resources */,
+				285232E525FF07310073E1AD /* scrcpy-server in Resources */,
 				EDF6FC0A25F8A6E3002D1EF2 /* Preview Assets.xcassets in Resources */,
 				EDF6FC1D25FA03F9002D1EF2 /* adb in Resources */,
+				285232E825FF07460073E1AD /* scrcpy in Resources */,
 				EDF6FC0725F8A6E3002D1EF2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,11 +316,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = adbconnect/adbconnect.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"adbconnect/Preview Content\"";
-				DEVELOPMENT_TEAM = V3237NN4PA;
+				DEVELOPMENT_TEAM = E65B967WDH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = adbconnect/Info.plist;
@@ -334,11 +343,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = adbconnect/adbconnect.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"adbconnect/Preview Content\"";
-				DEVELOPMENT_TEAM = V3237NN4PA;
+				DEVELOPMENT_TEAM = E65B967WDH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = adbconnect/Info.plist;
