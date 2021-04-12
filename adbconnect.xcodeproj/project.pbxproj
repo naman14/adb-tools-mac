@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86D0AF8926246D9C0037D5D5 /* ContentView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86D0AF8B26246D9C0037D5D5 /* ContentView.strings */; };
 		EDF6FC0325F8A6E3002D1EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6FC0225F8A6E3002D1EF2 /* AppDelegate.swift */; };
 		EDF6FC0525F8A6E3002D1EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6FC0425F8A6E3002D1EF2 /* ContentView.swift */; };
 		EDF6FC0725F8A6E3002D1EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF6FC0625F8A6E3002D1EF2 /* Assets.xcassets */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86D0AF8626246D050037D5D5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		86D0AF8A26246D9C0037D5D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ContentView.strings; sourceTree = "<group>"; };
+		86D0AF8D26246D9F0037D5D5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/ContentView.strings; sourceTree = "<group>"; };
 		EDF6FBFF25F8A6E3002D1EF2 /* adbconnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adbconnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF6FC0225F8A6E3002D1EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF6FC0425F8A6E3002D1EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D05227CEE64456D84DEE4B8E /* localization */ = {
+			isa = PBXGroup;
+			children = (
+				86D0AF8B26246D9C0037D5D5 /* ContentView.strings */,
+			);
+			path = localization;
+			sourceTree = "<group>";
+		};
 		EDF6FBF625F8A6E3002D1EF2 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +86,7 @@
 				EDF6FC1F25FA0514002D1EF2 /* AdbHelper.swift */,
 				EDF6FC2225FA1E28002D1EF2 /* DevicesPopover.swift */,
 				EDF6FC2525FA22BA002D1EF2 /* Device.swift */,
+				D05227CEE64456D84DEE4B8E /* localization */,
 			);
 			path = adbconnect;
 			sourceTree = "<group>";
@@ -135,6 +148,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = EDF6FBF625F8A6E3002D1EF2;
 			productRefGroup = EDF6FC0025F8A6E3002D1EF2 /* Products */;
@@ -155,6 +169,7 @@
 				EDF6FC0A25F8A6E3002D1EF2 /* Preview Assets.xcassets in Resources */,
 				EDF6FC1D25FA03F9002D1EF2 /* adb in Resources */,
 				EDF6FC0725F8A6E3002D1EF2 /* Assets.xcassets in Resources */,
+				86D0AF8926246D9C0037D5D5 /* ContentView.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,10 +191,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		86D0AF8B26246D9C0037D5D5 /* ContentView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86D0AF8A26246D9C0037D5D5 /* en */,
+				86D0AF8D26246D9F0037D5D5 /* ko */,
+			);
+			name = ContentView.strings;
+			sourceTree = "<group>";
+		};
 		EDF6FC0B25F8A6E3002D1EF2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EDF6FC0C25F8A6E3002D1EF2 /* Base */,
+				86D0AF8626246D050037D5D5 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -191,6 +216,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -252,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -308,11 +335,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = adbconnect/adbconnect.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"adbconnect/Preview Content\"";
-				DEVELOPMENT_TEAM = V3237NN4PA;
+				DEVELOPMENT_TEAM = 8WV5TPYB24;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = adbconnect/Info.plist;
@@ -334,11 +362,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = adbconnect/adbconnect.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"adbconnect/Preview Content\"";
-				DEVELOPMENT_TEAM = V3237NN4PA;
+				DEVELOPMENT_TEAM = 8WV5TPYB24;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = adbconnect/Info.plist;

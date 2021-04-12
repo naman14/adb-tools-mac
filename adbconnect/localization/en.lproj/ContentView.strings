@@ -1,0 +1,35 @@
+/****************************************************************************/
+/* Localization file */
+
+/* remote connection */
+"Disconnect remote connection" = "Disconnect remote connection";
+"Establish remote connection" = "Establish remote connection"
+"Disconnected remoted connection" = "Disconnected remoted connection";
+"Connected to adb remotely" = "Connected to adb remotely";
+
+/* screenshot */
+"Take screenshot" = "Take screenshot";
+"Screenshot will be saved in Desktop" = "Screenshot will be saved in Desktop";
+
+/* recode screen */
+"Recording screen... Click to stop and save recording" = "Recording screen... Click to stop and save recording";
+"Record screen" = "Record screen";
+"Recording will be saved in Desktop" = "Recording will be saved in Desktop";
+"Started recording screen.." = "Started recording screen..";
+
+/* settings */
+"Hide more options" = "Hide more options";
+"Show more options" = "Show more options";
+
+/* deeplink */
+"deeplink" = "deeplink";
+"Opening deeplink.." = "Opening deeplink..";
+"Open" = "Open";
+
+/* bug report */
+"Capture logcat" = "Capture logcat";
+"Logcat saved in Desktop" = "Logcat saved in Desktop";
+
+/* no device */
+"No devices connected" = "No devices connected";
+
