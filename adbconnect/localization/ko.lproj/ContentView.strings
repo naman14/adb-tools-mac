@@ -1,0 +1,35 @@
+/****************************************************************************/
+/* Localization file */
+
+/* remote connection */
+"Disconnect remote connection" = "원격 연결 끊기";
+"Establish remote connection" = "원격 연결 설정";
+"Disconnected remoted connection" = "연결이 끊긴 원격 연결";
+"Connected to adb remotely" = "원격으로 adb에 연결됨";
+
+/* screenshot */
+"Take screenshot" = "스크린샷 촬영";
+"Screenshot will be saved in Desktop" = "스크린샷은 데스크탑에 저장될 것입니다";
+
+/* recode screen */
+"Recording screen... Click to stop and save recording" = "화면 기록중... 클릭하여 정지한 후 화면 기록을 저장하세요";
+"Record screen" = "화면 기록";
+"Recording will be saved in Desktop" = "화면 기록은 데스크탑에 저장될 것입니다";
+"Started recording screen.." = "화면 기록하는 것을 시작...";
+
+/* settings */
+"Hide more options" = "추가 옵션 숨기기";
+"Show more options" = "추가 옵션 보이기";
+
+/* deeplink */
+"deeplink" = "deeplink";
+"Opening deeplink.." = "deeplink 열기..";
+"Open" = "열기";
+
+/* bug report */
+"Capture logcat" = "로그 저장";
+"Logcat saved in Desktop" = "로그가 데스크탑에 저장되었습니다";
+
+/* no device */
+"No devices connected" = "디바이스가 연결되어 있지 않습니다";
+

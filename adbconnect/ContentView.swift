@@ -71,15 +71,15 @@ struct DeviceActionsView: View {
             HStack(alignment: .top) {
                 Image("WifiIcon").resizable().frame(width: 18.0, height: 18.0)
                 isTcpConnected()
-                    ? Text("Disconnect remote connection")
-                    : Text("Establish remote connection")
+                    ? Text("Disconnect remote connection".localized())
+                    : Text("Establish remote connection".localized())
             }.contentShape(Rectangle())
             .onTapGesture {
                 if(isTcpConnected()) {
-                    statusMessaage = "Disconnected remoted connection"
+                    statusMessaage = "Disconnected remoted connection".localized()
                     adb.disconnectTCPConnection(deviceId: device.id)
                 } else {
-                    statusMessaage = "Connected to adb remotely"
+                    statusMessaage = "Connected to adb remotely".localized()
                     adb.makeTCPConnection(deviceId: device.id)
                 }
                 // refresh device list
@@ -91,25 +91,25 @@ struct DeviceActionsView: View {
             //screenshot
             HStack(alignment: .top) {
                 Image("ScreenshotIcon").resizable().frame(width: 18.0, height: 18.0)
-                Text("Take screenshot")
+                Text("Take screenshot".localized())
             }.contentShape(Rectangle())
             .onTapGesture {
-                statusMessaage = "Screenshot will be saved in Desktop"
+                statusMessaage = "Screenshot will be saved in Desktop".localized()
                 adb.takeScreenshot(deviceId: device.id)
             }
             
             // record screen
             HStack(alignment: .top) {
                 Image("RecordIcon").resizable().frame(width: 18.0, height: 18.0)
-                Text(isRecordingScreen ? "Recording screen... Click to stop and save recording" : "Record screen")
+                Text(isRecordingScreen ? "Recording screen... Click to stop and save recording".localized() : "Record screen".localized())
             }.contentShape(Rectangle())
             .onTapGesture {
                 if (isRecordingScreen) {
-                    statusMessaage = "Recording will be saved in Desktop"
+                    statusMessaage = "Recording will be saved in Desktop".localized()
                     adb.stopScreenRecording(deviceId: device.id)
                     isRecordingScreen = false
                 } else {
-                    statusMessaage = "Started recording screen.."
+                    statusMessaage = "Started recording screen..".localized()
                     adb.recordScreen(deviceId: device.id)
                     isRecordingScreen = true
                 }
@@ -118,7 +118,7 @@ struct DeviceActionsView: View {
             // advanced options
             HStack(alignment: .top) {
                 Image("SettingsIcon").resizable().frame(width: 18.0, height: 18.0)
-                Text(showAdvanced ? "Hide more options" : "Show more options")
+                Text(showAdvanced ? "Hide more options".localized() : "Show more options".localized())
                     .font(showAdvanced ? Font.body.bold() : Font.body)
             }.contentShape(Rectangle())
             .onTapGesture {
@@ -128,22 +128,22 @@ struct DeviceActionsView: View {
                 // open deeplink
                 HStack(alignment: .top) {
                     Image("DeeplinkIcon").resizable().frame(width: 18.0, height: 18.0)
-                    TextField("deeplink", text: $deeplink).padding(.leading, 5)
+                    TextField("deeplink".localized(), text: $deeplink).padding(.leading, 5)
                     Button(action: {
-                        statusMessaage = "Opening deeplink.."
+                        statusMessaage = "Opening deeplink..".localized()
                         adb.openDeeplink(deviceId: device.id, deeplink: deeplink)
                     }, label: {
-                        Text("Open")
+                        Text("Open".localized())
                     })
                 }.padding(.leading, 20)
                 
                 // capture bugreport
                 HStack(alignment: .top) {
                     Image("BugreportIcon").resizable().frame(width: 18.0, height: 18.0)
-                    Text("Capture logcat")
+                    Text("Capture logcat".localized())
                 }.contentShape(Rectangle()).padding(.leading, 20)
                 .onTapGesture {
-                    statusMessaage = "Logcat saved in Desktop"
+                    statusMessaage = "Logcat saved in Desktop".localized()
                     adb.captureBugReport(deviceId: device.id)
                 }
             }
@@ -155,9 +155,15 @@ struct DeviceActionsView: View {
 struct NoDevicesView: View {
     var body: some View {
         VStack {
-            Text("No devices connected").frame(maxWidth: .infinity, alignment: .center).padding(.top, 20)
+            Text("No devices connected".localized()).frame(maxWidth: .infinity, alignment: .center).padding(.top, 20)
             Image("UsbOffIcon").resizable().frame(width: 54.0, height: 54.0, alignment: .center).padding(.top, 15)
         }
+    }
+}
+
+extension String {
+    func localized(bundle: Bundle = .main, tableName: String = "ContentView") -> String {
+        return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
     }
 }
 
