@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-REQUIRED_SWIFTLINT_VERSION='0.45.0'
+REQUIRED_SWIFTLINT_VERSION='0.45.1'
 
 if ! type swiftlint > /dev/null; then
   echo "swiftlint not installed, exiting..."
