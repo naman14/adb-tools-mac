@@ -14,6 +14,7 @@ Download app from [Releases](https://github.com/naman14/adb-tools-mac/releases)
 
 - Connect device over tcp
 - Take screenshots and record screen
+- Copy the screenshot in your clipboard
 - Open deeplinks
 - Capture logcat
 
