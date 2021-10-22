@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class DevicesPopover: NSPopover {
-    
     func update() {
         let contentView = ContentView()
         contentViewController = NSHostingController(rootView: contentView)
